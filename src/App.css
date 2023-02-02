@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+body{
+  background-color: aliceblue;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+  max-width: 1280px;
+  padding: 2rem;
+  width: 100%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container{
+  max-width: 600px;
+  margin: 0 auto;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card {
+  padding: 2em;
+}
+.todo-list li{
+  background-color: white;
+  margin-bottom: 5px;
+  padding-right: 22%;
+}
+.todo-icons{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  min-width: 110px;
+}
+.mb2{margin-bottom: 2rem;}
+.spacies-row > *{
+  margin-right: 1rem !important;
+}
+.task .done{
+  text-decoration: line-through;
+  opacity: 0.5;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+
+
+
+
+
+@media (max-width:600px) {
+  .todo-list li{
+    padding-right: 16px;
   }
-  to {
-    transform: rotate(360deg);
+  .todo-list li .MuiListItemSecondaryAction-root{
+    position: static;
+    transform: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
   }
 }
