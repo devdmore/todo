@@ -88,7 +88,6 @@ function App() {
       
       <List className={'todo-list'}>
         { todo?.length ? todo
-        //.sort((a,b)=> a.id > b.id ? 1 : -1)
         .map((task, index) => {
           return <Todo key={task.id} 
                   task={task} 

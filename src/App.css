@@ -32,13 +32,6 @@ body{
   opacity: 0.5;
 }
 
-
-
-
-
-
-
-
 @media (max-width:600px) {
   .todo-list li{
     padding-right: 16px;
