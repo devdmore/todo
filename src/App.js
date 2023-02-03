@@ -12,7 +12,7 @@ function App() {
   const [updateData, setUpdateData] = useState({})
 
   // textboxes handle change events
-  const addTaskHandleChange = (e) => {
+  const updateTaskHandleChange = (e) => {
     setUpdateData({...updateData, title: e.target.value})
   }
   const newTaskHandleChange = (e) => {
@@ -57,12 +57,12 @@ function App() {
   }
 
   const markDone =(id) => {
-    let newTasks = todo.map(task => {
-      if(task.id === id){
-        return ({...task, status: !task.status  })
-      }
-      return task;
-    });
+    let excludeMarking = todo.filter(task => task.id !== id);
+    let findMarking = todo.find(task => task.id === id);
+    if(findMarking){
+      findMarking = ({...findMarking, status: !findMarking.status  })
+    }
+    let newTasks = [...excludeMarking, findMarking];
     setTodo(newTasks);
     localStorage.setItem('todo', JSON.stringify(newTasks));
   }
@@ -77,7 +77,7 @@ function App() {
         cancelUpdate={cancelUpdate}
         updateTask={updateTask}
         updateData={updateData}
-        addTaskHandleChange={addTaskHandleChange} />
+        updateTaskHandleChange={updateTaskHandleChange} />
         :
         <AddTaskForm 
         newTask={newTask}
@@ -88,8 +88,8 @@ function App() {
       
       <List className={'todo-list'}>
         { todo?.length ? todo
-        .sort((a,b)=> a.id > b.id ? 1 : -1)
-        .map((task) => {
+        //.sort((a,b)=> a.id > b.id ? 1 : -1)
+        .map((task, index) => {
           return <Todo key={task.id} 
                   task={task} 
                   editTask={editTask}
